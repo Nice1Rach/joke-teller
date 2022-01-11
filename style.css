@@ -49,6 +49,15 @@ button:disabled {
     filter: brightness(30%);
 }
 
+.jokeTypes {
+    margin-top: 1rem;
+    transform: scale(0.95);
+}
+
+.jokeTypes button {
+    margin: 5px;
+}
+
 /*  Media Query: Tablet or Smaller */
 @media screen and (max-width: 1000px) {
     .container {
