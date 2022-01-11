@@ -1,11 +1,12 @@
 /* ROBOT.GIF from Giphy - https://giphy.com/gifs/robot-cinema-4d-eyedesyn-3o7abtn7DuREEpsyWY */
 
-html {
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
     background: #45badd;
 }
 
@@ -27,6 +28,7 @@ button {
     outline: none;
     width: 200px;
     height: 50px;
+    padding: 1rem 2rem;
     font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
     color: white;
@@ -58,6 +60,12 @@ button:disabled {
 
     button {
         box-shadow: 5px 5px 30px 20px rgba(0, 0, 0, 0.5);
-    }
-
+ }
+    
+ .jokeTypes {
+     display: flex;
+     justify-content: right center;
+     align-items: center;
+     flex-direction: column;
+  }
 }
