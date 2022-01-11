@@ -11,10 +11,9 @@ function toggleButton() {
 
 // Passing Joke to VoiceRSS API
 function tellMe(joke) {
-    const jokeString = joke.trim().replace(/ /g, '%20');
     VoiceRSS.speech({
         key: 'b782f351464e402abc612131fa1e040e',
-        src: jokeString,
+        src: joke,
         hl: 'en-us',
         r: 0,
         c: 'mp3',
@@ -35,10 +34,10 @@ async function getJokes() {
         } else {
             joke = data.joke;
         } 
-        tellMe(joke);
         toggleButton();
+        tellMe(joke);
     } catch (error) {
-        // Catch Error Here
+        console.log('whoops', error);
       }
 }
 
