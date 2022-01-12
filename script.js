@@ -1,11 +1,5 @@
 const button = document.getElementById('button');
 const audioElement = document.getElementById('audio');
-const programmingButton = document.getElementById('programming');
-const nsfwButton = document.getElementById('nsfw');
-const darkButton = document.getElementById('dark');
-
-let apiUrl =
-  'https://sv443.net/jokeapi/v2/joke/Programming,Dark?blacklistFlags=nsfw,religious,political,racist,sexist';
 
 //  Disabe/Enable Button
 function toggleButton() {
@@ -18,6 +12,7 @@ function tellMe(joke) {
         key: 'b782f351464e402abc612131fa1e040e',
         src: joke,
         hl: 'en-us',
+        v: 'Rachel',
         r: 0,
         c: 'mp3',
         f: '44khz_16bit_stereo',
@@ -28,14 +23,14 @@ function tellMe(joke) {
 // Get Jokes from Joke API 
 async function getJokes() {
     let joke = '';
- 
+    const apiUrl = 'https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist'   
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
-        if (data.setup) {
-            joke = `${data.setup} ... ${data.delivery}`;
+        if (jokeData.setup) {
+            joke = `${jokeData.setup} ... ${jokeData.delivery}`;
         } else {
-            joke = data.joke;
+            joke = jokeData.joke;
         } 
         tellMe(joke);
         toggleButton();
@@ -45,30 +40,5 @@ async function getJokes() {
 }
 
 // Event Listeners
-button.addEventListener('click', () => {
-    getJokes()
-});
+button.addEventListener('click', getJokes);
 audioElement.addEventListener('ended', toggleButton);
-
-// These are to let the user switch between different joke types.
-programmingButton.addEventListener('click', () => {
-  darkButton.disabled = false;
-  nsfwButton.disabled = false;
-  programmingButton.disabled = true;
-  apiUrl =
-    'https://sv443.net/jokeapi/v2/joke/Programming,Dark?blacklistFlags=nsfw,religious,political,racist,sexist';
-});
-darkButton.addEventListener('click', () => {
-  darkButton.disabled = true;
-  nsfwButton.disabled = false;
-  programmingButton.disabled = false;
-  apiUrl =
-    'https://sv443.net/jokeapi/v2/joke/Dark?blacklistFlags=nsfw,religious,political,racist,sexist';
-});
-nsfwButton.addEventListener('click', () => {
-  darkButton.disabled = false;
-  nsfwButton.disabled = true;
-  programmingButton.disabled = false;
-  apiUrl =
-    'https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=religious,political,racist,sexist';
-});
