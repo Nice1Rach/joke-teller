@@ -26,7 +26,7 @@ async function getJokes() {
     const apiUrl = 'https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist'   
     try {
         const response = await fetch(apiUrl);
-        const data = await response.json();
+        const jokeData = await response.json();
         if (jokeData.setup) {
             joke = `${jokeData.setup} ... ${jokeData.delivery}`;
         } else {
