@@ -12,7 +12,7 @@ function tellMe(joke) {
         key: 'b782f351464e402abc612131fa1e040e',
         src: joke,
         hl: 'en-us',
-        v: 'Linda',
+        v: 'Rachel',
         r: 0,
         c: 'mp3',
         f: '44khz_16bit_stereo',
